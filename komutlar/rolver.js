@@ -1,10 +1,10 @@
-const Emran = require('discord.js');
+const verhain = require('discord.js');
 
 exports.run = async (client, message, args) => {
   	          const ayarlar = require('../ayarlar.json')
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 
-      if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send(new Emran.MessageEmbed().setDescription('Bu komudu kullanmak için **Rolleri Yönet** yetkisine sahip olmalısın.').setColor(10038562));
+      if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send(new verhain.MessageEmbed().setDescription('Bu komudu kullanmak için **Rolleri Yönet** yetkisine sahip olmalısın.').setColor(10038562));
   let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 var role = message.mentions.roles.first() || message.guild.roles.cache.find(a => a.name == args.slice(1).join(' '));
 if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send('Bu komutu kullanabilmek için "\`Rolleri Yönet\`" yetkisine sahip olmalısın.');
